@@ -1,0 +1,73 @@
+@font-face  {
+    font-family: customa;
+	src: url(gumblery-demo.regular.otf) format('truetype')
+
+}
+
+body {    
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#maincontainer {
+
+}
+
+#headerarea {
+    background-color: #416204;
+	width: 100%;
+	height: 270px;
+}	
+
+#headercontainer {
+	padding: 50px;
+}	
+
+#mainheading {
+	font-size: 110px;
+    text-align: center;
+	font-family: customa;
+	color: white;
+}
+
+#navbar {
+	font-family: customa;
+	font-size: 30px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #264508; 
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: white;
+    color: #ff9900;
+}
+
+.donatetab {
+    background-color: #ff9900;
+}
+
+#pagecontent {
+	background-color: #416204;
+	margin: 60px;
+}
+
+
+
