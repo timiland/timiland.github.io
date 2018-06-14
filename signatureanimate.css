@@ -1,0 +1,21 @@
+body {margin:0;}
+
+path {
+	stroke-width: 1;
+	stroke: #000000;
+	fill: none;
+}
+
+#sigsvg {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#btn {
+  position: fixed;
+  left: 50%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+}
