@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Signature Animated</title>
+  <title>Signature Animatediii</title>
   <link rel="stylesheet" href="signatureanimate.css">
 </head>
 <body>
@@ -33,8 +33,6 @@
 
 </svg>
 
-<button>
-
 
 
 <script>
@@ -47,46 +45,53 @@ function giveids() {
 
 giveids();
 
+
 var current_frame = 0; //set variables for a frame rate
-var total_frames = 70;
+var frames_cumulative = 0;
+var total_frames = 250;
 var path = new Array(); //set arrays to store the values for each path and its respective length
 var length = new Array();
-var totlength = 0;
+var tot_length = 0;
 for(var i=0; i<6;i++){
     path[i] = document.getElementById('i'+i); //loop through each path
     l = path[i].getTotalLength(); //find its length
     length[i] = l; //store the length for each index in the length array
-    totlength += l;
+    tot_length += l;
     path[i].style.strokeDasharray = l; //set the stroke dasharray
     path[i].style.strokeDashoffset = l; //set the stroke dash offset to be just out of sight
 }
+
+for(var j=0; j<6;j++){
+    path[j].proportion = length[j]/tot_length;
+ }
+
 var handle = 0; //var to locate point in animaton
- 
+
+var k=0; 
  
 var draw = function() {
-   var progress = current_frame/total_frames;
-   if (progress > 1) {
+
+   pathprogress = current_frame/(path[k].proportion * total_frames);
+   progress = frames_cumulative/total_frames;
+   //frames_cumulative > total_frames
+   if (length[5] == path[5].style.strokeDashoffset) {
      window.cancelAnimationFrame(handle);
    } else {
-     current_frame++;
-     for(var j=0; j<path.length;j++){
-         path[j].style.strokeDashoffset = Math.floor(length[j] * (1 - progress));
+         current_frame++;
+         path[k].style.strokeDashoffset = (length[k] * (1 - pathprogress));
+         frames_cumulative++;
 
-     }
-     handle = window.requestAnimationFrame(draw);
+      if (pathprogress > 1){ 
+      path[k].style.strokeDashoffset = 0;
+      k++; 
+      current_frame = 0;
+    }
+
+
+    handle = window.requestAnimationFrame(draw);
    }
 };
 draw();
-
-/*
-var rerun = function() {
-  var old = document.getElementsByTagName('div')[0];
-  old.parentNode.removeChild(old);
-  document.getElementsByTagName('body')[0].appendChild(myobj);
-  init();
-  draw();
-};
-*/
 
 </script>
 </body>
